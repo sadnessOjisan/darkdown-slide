@@ -71,12 +71,6 @@ plain text は差分がわかりやすい
 
 ---
 
-## Parser Combinator VS Parser Generator
-
-前述の縛りがあるので　 Parser Combinator
-
----
-
 ## OCaml で実装する
 
 - 演算子の定義ができる
