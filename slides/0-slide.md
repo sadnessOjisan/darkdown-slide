@@ -1,31 +1,27 @@
 <!-- classes: title -->
 
-
 Markdown を 黒塗りできる Monadic Parser
 
 # Darkdown
-
 
 @sadnessOjisan
 
 ---
 
-
-# ⚠️この発表は政権批判の意図はなく、政治に対する何かしらの主張は含みません。
+# ⚠️ この発表は政権批判の意図はなく、政治に対する何かしらの主張は含みません。
 
 ---
 
 # About Me
 
-* ついに就職した。
-* Iris LT のことをクソアプリコンテストと思ってる
+- ついに就職した。
+- Iris LT のことをクソアプリコンテストと思ってる
 
 ---
 
 ## 行政文書に Markdown !?
 
-* https://twitter.com/hal_sk/status/1432849899553394691
-
+- https://twitter.com/hal_sk/status/1432849899553394691
 
 ---
 
@@ -53,9 +49,9 @@ plain text は差分がわかりやすい
 
 ## 黒塗りは必要
 
-* 都合の悪い情報を隠すため？
-* 個人情報が含まれる
-* 攻撃に使われる
+- 都合の悪い情報を隠すため？
+- 個人情報が含まれる
+- 攻撃に使われる
 
 ---
 
@@ -65,9 +61,9 @@ plain text は差分がわかりやすい
 
 ## 政府のための要件を考える
 
-* 対象はplain text
-* 黒塗りできる文法を定義する
-* 3rd party のライブラリを使ってはいけない
+- 対象は plain text
+- 黒塗りできる文法を定義する
+- 3rd party のライブラリを使ってはいけない
 
 ---
 
@@ -77,17 +73,17 @@ plain text は差分がわかりやすい
 
 ## Parser Combinator VS Parser Generator
 
-前述の縛りがあるので　Parser Combinator
+前述の縛りがあるので　 Parser Combinator
 
 ---
 
 ## OCaml で実装する
 
-* 演算子の定義ができる
-* 組み込みの Result 型がある
+- 演算子の定義ができる
+- 組み込みの Result 型がある
   - parser の失敗を検知する必要がある
-* 引数の適用がやりやすい
-* 俺は Haskell が書けない
+- 引数の適用がやりやすい
+- 俺は Haskell が書けない
 
 ---
 
@@ -127,18 +123,18 @@ FYI: https://zehnpaard.hatenablog.com/entry/2019/07/05/090514
 
 ## コンビネーターを作る
 
-パーサーが次の3つの性質を満たすようにする
+パーサーが次の 3 つの性質を満たすようにする
 
-* functor
-* applicative fanctor
-* monad
+- functor
+- applicative fanctor
+- monad
   - darkdown では実装しない。applicative のみで済むようにズルしてます。
 
 ---
 
 ## map
 
-functor. 
+functor.
 パース結果の型を引数にとる関数を組み合わせられる。
 
 ```ocaml
@@ -211,7 +207,7 @@ let kakko_parse: string parser =
 
 ## 選択パーサー
 
-alternativeと呼ばれているもの。
+alternative と呼ばれているもの。
 
 複数のパーサーがあり、片方が失敗したらもう片方でパースできる。
 
@@ -239,7 +235,15 @@ let ( <|> ) (p1 : 'a parser) (p2 : 'a parser) : 'a parser =
 
 # おわりに
 
-* 今回はMarkdown それ自体をパースするのは諦めているので簡単な実装
-* ちゃんとしようとするとめちゃくちゃ大変なことになりそう. 引用ブロックやリストブロックが厄介すぎて投げた
-* ちなみに Haskell だと Parsec というライブラリを使った例がゴロゴロ転がっています
-* 完全な Markdown Parser を OCaml で作ることを最近の日課にしてるので、一緒に作ってくれる人がいましたら是非
+- 今回は Markdown それ自体をパースするのは諦めているので簡単な実装
+- ちゃんとしようとするとめちゃくちゃ大変なことになりそう. 引用ブロックやリストブロックが厄介すぎて投げた
+- ちなみに Haskell だと Parsec というライブラリを使った例がゴロゴロ転がっています
+- 完全な Markdown Parser を OCaml で作ることを最近の日課にしてるので、一緒に作ってくれる人がいましたら是非
+
+---
+
+参考資料
+
+- https://zehnpaard.hatenablog.com/entry/2019/07/05/090514
+- https://www.youtube.com/watch?v=Y5IIXUBXvLs
+- https://www.lambdanote.com/products/haskell
