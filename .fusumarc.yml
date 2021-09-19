@@ -1,9 +1,9 @@
 meta:
   url:
-  title:
-  description:
+  title: Darkdown
+  description: Markdown を 黒塗りできる Monadic Parser
   siteName:
-  sns: ['twitter']
+  sns: ["twitter"]
 slide:
   loop: false
   ui:
